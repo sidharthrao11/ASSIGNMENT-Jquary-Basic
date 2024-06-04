@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Slider Example</title>
+    <style>
+        #slider-container {
+            width: 400px;
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .slide {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            display: none;
+        }
+
+        .active {
+            display: block;
+        }
+        .slider{
+            background-color:skyblue;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="slider.js"></script>
+</head>
+<body>
+    <div class="slider">
+        <h1>Q. How to create slider with animation?</h1>
+        <h2>Ans:- Creating a slider with animations using jQuery involves manipulating the positioning of elements <br>
+        within a container and applying animation effects to transition between slides. Here's a basic example <br>
+        of how you can create a simple slider with jQuery:-</h2>
+     </div>
+     <br><br><br>
+
+
+    <div id="slider-container">
+        <div class="slide active" style="background-color: red;">Slide 1</div>
+        <div class="slide" style="background-color: blue;">Slide 2</div>
+        <div class="slide" style="background-color: green;">Slide 3</div>
+    </div>
+    <button id="prev">Previous</button>
+    <button id="next">Next</button>
+
+    <script>
+        $(document).ready(function(){
+    var currentIndex = 0;
+    var slides = $('.slide');
+    var totalSlides = slides.length;
+
+    function showSlide(index) {
+        slides.removeClass('active');
+        slides.eq(index).addClass('active');
+    }
+
+    function nextSlide() {
+        currentIndex = (currentIndex + 1) % totalSlides;
+        showSlide(currentIndex);
+    }
+
+    function prevSlide() {
+        currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+        showSlide(currentIndex);
+    }
+
+    $('#next').click(function(){
+        nextSlide();
+    });
+
+    $('#prev').click(function(){
+        prevSlide();
+    });
+
+    // Automatic slide change
+    setInterval(function() {
+        nextSlide();
+    }, 3000); // Change slide every 3 seconds
+});
+
+    </script>
+</body>
+</html>
+
+

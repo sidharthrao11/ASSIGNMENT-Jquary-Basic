@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Bubbling Example</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        .great-great-grandfather{
+            padding: 20px;
+            background-color:white;
+            border: 1px solid red;  
+            color: red;
+            width: 94%;
+        }
+        .great-grandfather{
+            padding: 20px;
+            background-color: white;
+            border: 1px solid red;
+            color: red;
+            width: 95%;
+        }
+        .grandfather{
+            padding: 20px;
+            background-color:white;
+            border: 1px solid red;
+            color: red;
+            width: 40%;
+        }
+        .parent {
+            padding: 20px;
+            background-color: white;
+            border: 1px solid red;
+            color: red;
+            width: 90%;
+        }
+
+        .child {
+            padding: 10px;
+            width: 80%;
+            background-color: white;
+            border: 1px solid red;
+            color: red;
+        }
+        .answer{
+            background-color: cadetblue;
+            padding: 20px;
+        }.bubble{
+            border: 1px solid red;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="answer">
+       <h2> Event bubbling refers to the propagation of an event through the DOM hierarchy. <br>
+        When an event occurs on a particular element, it will also trigger any event handlers <br>
+        attached to its parent elements, propagating up through the DOM tree until it reaches the root element. <br>
+        Here's a simple example of event bubbling in jQuery:- <br></h2>
+    </div> <br><br><br>
+<div class="bubble">
+    <div class="great-great-grandfather">body (Great-Great-Grandfather Element)
+     <div class="great-grandfather">div (Great-Grandfather Element)
+      <div class="grandfather">ul(Grandfather eEement)
+        <div class="parent">
+         li(direct Parent)
+            <div class="child">
+            span
+            </div>
+        </div>
+      </div>
+     </div>
+   </div>
+</div>
+
+    <script>
+        $(document).ready(function(){
+    $('.great-great-grandfather').on('click', function(){
+    console.log('great-great-grandfather clicked');
+    });
+            
+    $('.great-grandfather').on('click', function(){
+    console.log('great-grandfather clicked');
+    });
+
+    $('.grandfather').on('click', function(){
+    console.log('grandfather clicked');
+    });
+    $('.parent').on('click', function(){
+        console.log('Parent clicked');
+    });
+
+    $('.child').on('click', function(){
+        console.log('Child clicked');
+    });
+});
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Add/Remove Class Example</title>
+    <style>
+        .highlight {
+            background-color: yellow;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#addButton").click(function(){
+                $("#myDiv").addClass("highlight");
+            });
+
+            $("#removeButton").click(function(){
+                $("#myDiv").removeClass("highlight");
+            });
+        });
+    </script>
+</head>
+<body>
+    <div id="myDiv">This is a div element.</div>
+    <button id="addButton">Add Highlight</button>
+    <button id="removeButton">Remove Highlight</button>
+</body>
+</html>
